@@ -1,4 +1,5 @@
 import math
+
 total = 0
 cards_dict = {}
 with open('d4_input', 'r') as file:
@@ -11,12 +12,11 @@ with open('d4_input', 'r') as file:
         win = -1
         for num in nums:
             if num in winning_nums:
-                win+=1
-        if win>=0:
+                win += 1
+        if win >= 0:
             total += math.pow(2, win)
         line_no += 1
 print(total)
-
 
 # Part 2
 for (i, card_dict_tuple) in cards_dict.items():
@@ -35,4 +35,3 @@ total = 0
 for card_dict_tuple in cards_dict.values():
     total += card_dict_tuple[1][1]
 print(total)
-
