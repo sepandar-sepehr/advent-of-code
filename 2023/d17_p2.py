@@ -82,8 +82,12 @@ for i in range(len(pool)):
 
 visited = set()
 def calc_min_heat_loss():
+    # If I set start and go right or go down it doesn't work correctly because of turn rules (4 steps)
     distances[(0, 0)] = 0
-    to_visit = [(0, PoolNode(0, 0, 'r', 0))]
+    distances[(0, 1)] = pool[1][0]
+    distances[(1, 0)] = pool[0][1]
+    to_visit = [(pool[1][0], PoolNode(0, 1, 'd', 1)),
+                (pool[0][1], PoolNode(1, 0, 'r', 1))]
 
     while to_visit:
         dist_so_far, cur_node = heapq.heappop(to_visit)
